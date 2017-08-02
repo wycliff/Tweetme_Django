@@ -1,0 +1,15 @@
+{{ object_list }}
+
+<!-- Doing for loop in here -->
+{%for obj in object_list%}
+	<p> {{ obj.user }} <br/>
+	{{ obj.content }} <br/>
+	{{ obj.timestamp }} <br/>
+	<br/> ago </p>
+<!-- If we had no tweets-->
+{% empty %}
+	<p>There is no registered tweet as at now</p>
+
+{% endfor %}	
+
+
