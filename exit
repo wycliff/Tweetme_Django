@@ -1,0 +1,36 @@
+[33mcommit 3bac4f6f7d2da39d132ed53e3482632724b90745[m
+Merge: 5b187c4 cc7410c
+Author: wycliff <wycliffnyakemwa@gmail.com>
+Date:   Wed Aug 2 12:57:46 2017 +0300
+
+    Merge branch 'master' of github.com:wycliff/Tweetme_Django
+
+[33mcommit 5b187c457e407279721a5602d2d55bda47da1cbb[m
+Author: wycliff <wycliffnyakemwa@gmail.com>
+Date:   Wed Aug 2 12:57:27 2017 +0300
+
+    Conflict resovled
+
+[33mcommit cbcc84962af4e4bf6e10b9343c51b9145f93e308[m
+Author: wycliff <wycliffnyakemwa@gmail.com>
+Date:   Wed Aug 2 12:35:12 2017 +0300
+
+    up to Dynamic URL routing
+
+[33mcommit 91c6803cafe6138bd9b2c55d271dcdc1c43035cd[m
+Author: wycliff <wycliffnyakemwa@gmail.com>
+Date:   Wed Aug 2 12:22:12 2017 +0300
+
+    To Dynamic URL routing
+
+[33mcommit cc7410c4356fd2134314b94ac7b1c0fa68d14b1e[m
+Author: wycliff <wycliffnyakemwa@gmail.com>
+Date:   Wed Jul 26 15:28:23 2017 +0300
+
+    Update README.md
+
+[33mcommit ce0ad23a65405c67d2d57b59001421c88749cc6b[m
+Author: wycliff <wycliffnyakemwa@gmail.com>
+Date:   Wed Jul 26 15:15:02 2017 +0300
+
+    Initial commit
