@@ -1,8 +1,22 @@
-{{ object.content}} <br/>
+{% extends "base.html" %}
 
-{{ object.user}} <br/>
 
-{{ object.timestamp}} <br/> <!-- Template filter on timestamp-->
-{{ object.timestamp|timesince}} <br/>
+{% block title%} Delete Tweet | {{ block.super }}{% endblock title%}
 
-{{ object.content}} <br/>
+	
+{% block content %} Hello 
+	{{ object.content}} <br/>
+
+	{{ object.user}} <br/>
+
+	{{ object.timestamp}} <br/> <!-- Template filter on timestamp-->
+	{{ object.timestamp|timesince}} <br/>
+
+	{{ object.content}} <br/>
+	
+
+{% endblock content %}
+
+
+
+

@@ -1,15 +1,27 @@
-{{ object_list }}
-
-<!-- Doing for loop in here -->
-{%for obj in object_list%}
-	<p> {{ obj.user }} <br/>
-	{{ obj.content }} <br/>
-	{{ obj.timestamp }} <br/>
-	<br/> ago </p>
-<!-- If we had no tweets-->
-{% empty %}
-	<p>There is no registered tweet as at now</p>
-
-{% endfor %}	
+{% extends "base.html" %}
 
 
+{% block title%} Tweets | {{ block.super }}{% endblock title%}
+
+	
+{% block content %} Hello 
+		
+		{{ object_list }}
+
+	<!-- Doing for loop in here -->
+	{%for obj in object_list%}
+		<p> {{ obj.user }} <br/>
+		{{ obj.content }} <br/>
+		{{ obj.timestamp }} <br/>
+		<br/> ago </p>
+
+	<!-- If we had no tweets-->
+	{% empty %}
+	  		
+
+		<p>There is no registered tweet as at now (list_view)</p>
+
+	{% endfor %}	
+		
+
+{% endblock content %}

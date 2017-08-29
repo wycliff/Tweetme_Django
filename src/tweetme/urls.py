@@ -26,7 +26,7 @@ from .views import home
 urlpatterns = [
     url(r'^admin/', admin.site.urls), # /admin/
     url(r'^$', home, name= "home"), #/
-     url(r'^tweet/', include('tweets.urls')), 
+     url(r'^tweet/', include('tweets.urls', namespace = 'tweet')), 
 
     #Wrapping whole list of urls from tweets app into this main one  
 ]

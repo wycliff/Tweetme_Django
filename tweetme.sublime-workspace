@@ -4,16 +4,36 @@
 		"selected_items":
 		[
 			[
-				"for",
-				"forms"
+				"div",
+				"div\tTag"
 			],
 			[
-				"T",
-				"TweetModelForm"
+				"di",
+				"div\tTag"
+			],
+			[
+				"i",
+				"input\tTag"
 			],
 			[
 				"re",
 				"request"
+			],
+			[
+				"T",
+				"Tweet"
+			],
+			[
+				"Use",
+				"UserOwnerMixin"
+			],
+			[
+				"form",
+				"form_valid"
+			],
+			[
+				"for",
+				"forms"
 			],
 			[
 				"temp",
@@ -108,47 +128,190 @@
 	"buffers":
 	[
 		{
-			"contents": "#NB: The `urlpatterns` list routes URLs to views \n#import views \n#from .views import tweet_detailed_view,tweet_list_view  --> these are for function based views \nfrom .views import (\n\tTweetCreateView,\n\tTweetDetailView,\n\t TweetListView\n\t )\n\n\nfrom django.conf.urls import url\n\nurlpatterns = [\n    \n    #**************for the function based views **\n    #url(r'^$', tweet_list_view, name= \"list\"),\n    #url(r'^1/$', tweet_detailed_view, name= \"detail\"),\n\n    #using class based views \n\turl(r'^$', TweetListView.as_view(), name= \"list\"),  # $ shows the endof the URL , hence here /tweet/\n\turl(r'^create/$', TweetCreateView.as_view(), name= \"create\"), #/tweet/create/\n    url(r'^(?P<pk>\\d+)/$',TweetDetailView.as_view() , name= \"detail\"),  # /tweet/1/ \n\n]\n\n\t\t\n\n",
 			"file": "src/tweets/urls.py",
-			"file_size": 781,
-			"file_write_time": 131472773471238004,
 			"settings":
 			{
-				"buffer_size": 756,
+				"buffer_size": 987,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/update_view.html",
+			"settings":
+			{
+				"buffer_size": 214,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweetme/urls.py",
+			"settings":
+			{
+				"buffer_size": 1268,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "src/tweets/views.py",
 			"settings":
 			{
-				"buffer_size": 3592,
+				"buffer_size": 5045,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "from django import forms\nfrom django.forms.utils import ErrorList\n\n\n\nclass FormUserNeededMixin(object):\n\tdef form_valid(self, form):\n\t\tif self.request.user.is_authenticated(): # dont allow submit if user is not authenticated.\n\t\t\tform.instance.user = self.request.user\n\t\t\treturn super(FormUserNeededMixin, self).form_valid(form)\n\t\telse:\n\t\t\tform._errors[forms.forms.NON_FIELD_ERRORS] = ErrorList([\"User must be logged in to continue\"]) # confirm login status of the user \n\t\t\treturn self.form_invalid(form)\n\n",
-			"file": "src/tweets/mixins.py",
-			"file_size": 515,
-			"file_write_time": 131474505724419906,
+			"file": "src/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 505,
+				"buffer_size": 1586,
 				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "base.html"
+			}
+		},
+		{
+			"file": "src/templates/home.html",
+			"settings":
+			{
+				"buffer_size": 157,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/search_form.html",
+			"settings":
+			{
+				"buffer_size": 429,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "search_form.html"
+			}
+		},
+		{
+			"contents": "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"{%url 'home'%}\">Tweetme</a>\n    </div>\n\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n       \n      </ul>\n      {% include \"tweets/search_form.html\" %}\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a href=\"#\">Link</a></li>\n        <li class=\"dropdown\">\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li><a href=\"#\">Action</a></li>\n            <li><a href=\"#\">Another action</a></li>\n            <li><a href=\"#\">Something else here</a></li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li><a href=\"#\">Separated link</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>",
+			"file": "src/templates/navbar.html",
+			"file_size": 1568,
+			"file_write_time": 131484901079396945,
+			"settings":
+			{
+				"buffer_size": 1533,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "navbar.html"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/detail_view.html",
+			"settings":
+			{
+				"buffer_size": 343,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/list_view.html",
+			"settings":
+			{
+				"buffer_size": 457,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/tweet_detail.html",
+			"settings":
+			{
+				"buffer_size": 328,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/tweet_list.html",
+			"settings":
+			{
+				"buffer_size": 972,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweetme/settings/base.py",
+			"settings":
+			{
+				"buffer_size": 3117,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/delete_confirm.html",
+			"settings":
+			{
+				"buffer_size": 324,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweetme/settings/local.py",
+			"settings":
+			{
+				"buffer_size": 3587,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "static-serve/static/css/custom.css",
+			"settings":
+			{
+				"buffer_size": 23,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweetme/settings/production.py",
+			"settings":
+			{
+				"buffer_size": 3161,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/tweets/templates/tweets/form.html",
+			"settings":
+			{
+				"buffer_size": 129,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "form.html"
+			}
+		},
+		{
+			"contents": "from django import forms\nfrom django.forms.utils import ErrorList\n\n\n\nclass FormUserNeededMixin(object):\n\tdef form_valid(self, form):\n\t\tif self.request.user.is_authenticated(): # dont allow submit if user is not authenticated.\n\t\t\tform.instance.user = self.request.user\n\t\t\treturn super(FormUserNeededMixin, self).form_valid(form)\n\t\telse:\n\t\t\tform._errors[forms.forms.NON_FIELD_ERRORS] = ErrorList([\"User must be logged in to continue\"]) # confirm login status of the user \n\t\t\treturn self.form_invalid(form)\n\n\n# ===== Prevents a certain user from altering details entered by other user\nclass UserOwnerMixin(object):\n\tdef form_valid(self, form):\n\t\tif form.instance.user == self.request.user:    # this cond checked first before that of FormUserNeededMixin\n\t\t\treturn super(UserOwnerMixin , self).form_valid(form)\n\n\t\telse:\n\t\t\tform._errors[forms.forms.NON_FIELD_ERRORS] = ErrorList([\"This user is not allowed to change this <data>\t</data>\"]) # confirm login status of the user \n\t\t\treturn self.form_invalid(form)\n\t\t\n\n",
+			"file": "src/tweets/mixins.py",
+			"file_size": 1033,
+			"file_write_time": 131475274708580667,
+			"settings":
+			{
+				"buffer_size": 1008,
 				"line_ending": "Windows",
 				"name": "mixins.py"
 			}
 		},
 		{
-			"contents": "<form class='form' method='POST' action=\"\">\n{% csrf_token %}\n\t{{ form.as_p}}\n\t<input type=\"submit\" value=\"Tweet\"/>\n</form>  ",
 			"file": "src/tweets/templates/tweets/create_view.html",
-			"file_size": 126,
-			"file_write_time": 131472782850123765,
 			"settings":
 			{
-				"buffer_size": 124,
+				"buffer_size": 222,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -156,19 +319,28 @@
 			"file": "src/tweets/forms.py",
 			"settings":
 			{
-				"buffer_size": 651,
+				"buffer_size": 668,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "from django.db import models\nfrom django.conf import settings # associating with user model \nfrom django.core.exceptions import ValidationError\n\nfrom .validators import validate_content\n\n\n# Create your models here.\nclass Tweet(models.Model):\n\tuser = models.ForeignKey(settings.AUTH_USER_MODEL, default=1) #id of 1.  Associating with the user.\n\tcontent\t= models.CharField(max_length = 140 , validators=[validate_content]) \n\tupdated = models.DateTimeField(auto_now = True) # Read a little more of the documentation. \n\ttimestamp = models.DateTimeField(auto_now_add = True)  \n\t\t\n\tdef __str__(self):\n\t\treturn str(self.id) \n\n\n\t#===========you can add validation right in the model (inline validation) not specifically for a field though \n\t# def clean(self, *args, **kwargs):\n\t# \tcontent = self.content\n\t# \tif content == \"abc\":\n\t# \t\traise ValidationError(\"Content cannot be ABC\")\n\t# \treturn super(Tweet , self).clean(*args, **kwargs)\n\n\n\n\n ",
-			"file": "src/tweets/models.py",
-			"file_size": 932,
-			"file_write_time": 131467742685061163,
+			"file": "src/tweets/apps.py",
 			"settings":
 			{
-				"buffer_size": 932,
+				"buffer_size": 87,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from django.db import models\nfrom django.conf import settings # associating with user model \nfrom django.core.exceptions import ValidationError\n\nfrom django.urls import reverse\n\nfrom .validators import validate_content\n\n\n# Create your models here.\nclass Tweet(models.Model):\n\tuser = models.ForeignKey(settings.AUTH_USER_MODEL, default=1) #id of 1.  Associating with the user.\n\tcontent\t= models.CharField(max_length = 140 , validators=[validate_content]) \n\tupdated = models.DateTimeField(auto_now = True) # Read a little more of the documentation. \n\ttimestamp = models.DateTimeField(auto_now_add = True)  \n\t\t\n\tdef __str__(self):\n\t\treturn str(self.id) \n\n\tdef get_absolute_url(self):\n\t\treturn reverse('tweet:detail', kwargs= {\"pk\":self.pk})  #/tweet/detail/ \n\n    \n\t#===========you can add validation right in the model (inline validation) not specifically for a field though \n\t# def clean(self, *args, **kwargs):\n\t# \tcontent = self.content\n\t# \tif content == \"abc\":\n\t# \t\traise ValidationError(\"Content cannot be ABC\")\n\t# \treturn super(Tweet , self).clean(*args, **kwargs)\n\n\n\n\n ",
+			"file": "src/tweets/models.py",
+			"file_size": 1070,
+			"file_write_time": 131484702561629332,
+			"settings":
+			{
+				"buffer_size": 1074,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -188,6 +360,14 @@
 				"buffer_size": 433,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/tweets/__init__.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -242,7 +422,11 @@
 	[
 		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme",
 		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/src",
-		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/src/tweets"
+		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/src/templates",
+		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/src/tweets",
+		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/src/tweets/templates",
+		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/src/tweets/templates/tweets",
+		"/C/Users/Wycliffe/Documents/Django_Projects/Dev/tweetme/static-serve/static/css"
 	],
 	"file_history":
 	[
@@ -309,7 +493,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -323,6 +507,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tweets",
+			"reverse",
 			".\n",
 			"true"
 		],
@@ -342,7 +528,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -351,15 +537,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 756,
+						"buffer_size": 987,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								754,
-								754
+								982,
+								982
 							]
 						],
 						"settings":
@@ -370,24 +556,82 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/tweets/views.py",
+					"file": "src/tweets/templates/tweets/update_view.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3592,
+						"buffer_size": 214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								746,
-								746
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/tweetme/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1056,
+								1056
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 238.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/tweets/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5045,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2361,
+								2361
 							]
 						],
 						"settings":
@@ -396,27 +640,435 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 83.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/tweets/mixins.py",
+					"buffer": 4,
+					"file": "src/templates/base.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 505,
+						"buffer_size": 1586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								67,
-								67
+								1147,
+								1147
+							]
+						],
+						"settings":
+						{
+							"auto_name": "base.html",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/templates/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								157,
+								157
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/tweets/templates/tweets/search_form.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"auto_name": "search_form.html",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/templates/navbar.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1533,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								831,
+								831
+							]
+						],
+						"settings":
+						{
+							"auto_name": "navbar.html",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 97.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/tweets/templates/tweets/detail_view.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								341,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/tweets/templates/tweets/list_view.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/tweets/templates/tweets/tweet_detail.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 328,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/tweets/templates/tweets/tweet_list.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 972,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								398,
+								398
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 183.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/tweetme/settings/base.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/tweets/templates/tweets/delete_confirm.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								324,
+								324
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/tweetme/settings/local.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3587,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1287,
+								1287
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1954.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "static-serve/static/css/custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/tweetme/settings/production.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								945,
+								945
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 414.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/tweets/templates/tweets/form.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								115,
+								115
+							]
+						],
+						"settings":
+						{
+							"auto_name": "form.html",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "src/tweets/mixins.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								782,
+								782
 							]
 						],
 						"settings":
@@ -428,24 +1080,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 19,
 					"file": "src/tweets/templates/tweets/create_view.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 124,
+						"buffer_size": 222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								124,
-								124
+								219,
+								0
 							]
 						],
 						"settings":
@@ -456,24 +1108,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 20,
 					"file": "src/tweets/forms.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 651,
+						"buffer_size": 668,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								244,
-								244
+								668,
+								668
 							]
 						],
 						"settings":
@@ -484,39 +1136,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 21,
+					"file": "src/tweets/apps.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 87,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
 					"file": "src/tweets/models.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 932,
+						"buffer_size": 1074,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								617,
-								617
+								761,
+								761
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 23,
 					"file": "src/tweets/validators.py",
 					"semi_transient": false,
 					"settings":
@@ -528,8 +1208,8 @@
 						"selection":
 						[
 							[
-								136,
-								136
+								313,
+								313
 							]
 						],
 						"settings":
@@ -540,11 +1220,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 24,
 					"file": "src/tweets/admin.py",
 					"semi_transient": false,
 					"settings":
@@ -556,8 +1236,8 @@
 						"selection":
 						[
 							[
-								195,
-								195
+								62,
+								62
 							]
 						],
 						"settings":
@@ -568,7 +1248,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "src/tweets/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
 					"type": "text"
 				}
 			]
@@ -576,7 +1284,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -613,7 +1321,7 @@
 	"project": "tweetme.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -651,7 +1359,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 209.0,
+	"side_bar_width": 212.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

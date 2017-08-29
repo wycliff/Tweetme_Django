@@ -1,15 +1,61 @@
-{{ object_list }}
+{% extends "base.html" %}
 
-<!-- Doing for loop in here -->
-{%for obj in object_list%}
-	<p> {{ obj.user }} <br/>
-	{{ obj.content }} <br/>
-	{{ obj.timestamp }} <br/>
-	<br/> ago </p>
-<!-- If we had no tweets-->
-{% empty %}
-	<p>There is no registered tweet as at now</p>
 
-{% endfor %}	
+{% block title%} Tweets | {{ block.super }}{% endblock title%}
+
+	
+{% block content %}
+	
+	
+	<!-- Doing for loop in here -->
+
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+        
+         <!-- The search form -->
+		
+
+		{%for obj in object_list%}
+
+            <!-- from bootstrap -->
+			<div class="media">
+			  <div class="media-left">
+
+			    <a href="#">
+
+			    {% if object.image %}
+			      <img class="media-object" src="..." alt="...">
+			    {% endif %}
+			    </a>
+
+			  </div>
+			  <div class="media-body">
+		    {{ obj.content }} <br/>
+
+		    via {{ obj.user }} | {{ obj.timestamp }} ago | <a href="{{ object.get_absolute_url }}"> view </a>
+		    
+		  	  </div>
+			</div>
+
+		    <hr>		 
+			
+		<!-- If we had no tweets-->
+		{% empty %}
+			{% if request.GET.q %}
+
+		     <p>No tweets found </p>
+
+		  	{% else %}
+
+			<p>No tweets yet </p>
+
+			{% endif %}
+
+		{% endfor %}	
+	    </div>
+    </div>
+
+{% endblock content %}
+
 
 

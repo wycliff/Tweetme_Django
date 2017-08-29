@@ -14,10 +14,10 @@ class FormUserNeededMixin(object):
 
 
 # ===== Prevents a certain user from altering details entered by other user
-class UserOwnerMixin(FormUserNeededMixin,object):
+class UserOwnerMixin(object):
 	def form_valid(self, form):
 		if form.instance.user == self.request.user:    # this cond checked first before that of FormUserNeededMixin
-			return super(FormUserNeededMixin, self).form_valid(form)
+			return super(UserOwnerMixin, self).form_valid(form)
 
 		else:
 			form._errors[forms.forms.NON_FIELD_ERRORS] = ErrorList(["This user is not allowed to change this <data>	</data>"]) # confirm login status of the user 
